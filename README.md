@@ -1,7 +1,5 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+# Refresher for Create-react-app
+No CSS/Styling is included, the purpose of this project is to setup a functional todo-list using the React Functional Components and its Hooks and Effects.
 ## Available Scripts
 
 In the project directory, you can run:
