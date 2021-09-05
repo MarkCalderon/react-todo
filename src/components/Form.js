@@ -12,11 +12,13 @@ const Form = ({todos, setTodos, inputText, setInputText, setStatus}) => {
     // It adds the new item after the existing items using the spread operator.
     const submitTextHandler = (e) => {
         e.preventDefault();
-        setTodos([
-            ...todos,
-            { text: inputText, completed: false, id: Math.random() * 1000 },
-        ]);
-        setInputText('');
+        if(inputText != '') {
+            setTodos([
+                ...todos,
+                { text: inputText, completed: false, id: Math.random() * 1000 },
+            ]);
+            setInputText('');
+        }
     }
 
     // Handles the updating of the Filter state.
