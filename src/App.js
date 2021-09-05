@@ -19,6 +19,23 @@ function App() {
   /*--------  End Variables*  --------*/
 
   // React Hook: Apply side effects on state load
+  useEffect(() => {
+
+    // Retrieves data from browser local storage.
+    const getLocalTodos = () => {
+      if(localStorage.getItem("todos") === null) {
+        localStorage.setItem("todos", JSON.stringify([]));
+      }
+      else {
+        let todoLocal = JSON.parse(localStorage.getItem("todos", JSON.stringify(todos)));
+        setTodos(todoLocal)
+      }
+    }
+
+    getLocalTodos()
+  }, []);
+
+  // React Hook: Apply side effects on state load
   // + load upon state [todos, status] is updated.
   useEffect(() => {
     const filteredHandler = () => {
@@ -34,7 +51,14 @@ function App() {
           break;
       }
     }
+
+    // Saves the data to local storage.
+    const saveLocalTodos = () => {
+      localStorage.setItem("todos", JSON.stringify(todos));
+    }
+
     filteredHandler();
+    saveLocalTodos();
   }, [todos, status]);
 
   return (
